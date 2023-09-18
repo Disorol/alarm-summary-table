@@ -16,7 +16,7 @@
                 <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="rqm.png" />
+                            <Image Source="red-question-mark.png" Width="20" Height="20" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
