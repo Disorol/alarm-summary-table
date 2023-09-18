@@ -11,20 +11,43 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <DataGrid Background="#878a87" AutoGenerateColumns="False" x:Name="table" GridLinesVisibility="None">
+        <DataGrid Background="#3b3d3c" AutoGenerateColumns="False" x:Name="table" GridLinesVisibility="None" RowHeaderWidth="0">
             <DataGrid.Columns>
-                <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+                <DataGridTemplateColumn Width="SizeToCells" IsReadOnly="True">
+                    <DataGridTemplateColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTemplateColumn.HeaderStyle>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Image Source="red-question-mark.png" Width="20" Height="20" />
+                            <Image Source="{Binding ImageSource}" Width="20" Height="20" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
+                    <DataGridTemplateColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                        <Grid Background="#3b3d3c">
+                                            <ContentPresenter HorizontalAlignment="Center" />
+                                        </Grid>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </DataGridTemplateColumn.CellStyle>
                 </DataGridTemplateColumn>
 
-                <DataGridTextColumn Binding="{Binding Date_time, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="Date and Time" Width="auto" Foreground="white" >
+                <DataGridTextColumn Binding="{Binding DateAndTime, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="Date and Time" Width="auto" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
-                            <Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -34,9 +57,15 @@
 
 
 
-                <DataGridTextColumn Binding="{Binding Location_tag}" Header="Location tag" Width="*" Foreground="white">
+                <DataGridTextColumn Binding="{Binding LocationTag}" Header="Location tag" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -45,8 +74,14 @@
                 </DataGridTextColumn>
 
                 <DataGridTextColumn Binding="{Binding Source}" Header="Source" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -56,8 +91,14 @@
 
 
                 <DataGridTextColumn Binding="{Binding Condition}" Header="Condition" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -68,8 +109,14 @@
 
 
                 <DataGridTextColumn Binding="{Binding Prionity}" Header="Prionity" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -80,8 +127,14 @@
 
 
                 <DataGridTextColumn Binding="{Binding Description}" Header="Description" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -90,9 +143,15 @@
                 </DataGridTextColumn>
 
 
-                <DataGridTextColumn Binding="{Binding Trip_value}" Header="Trip Value" Width="*" Foreground="white">
+                <DataGridTextColumn Binding="{Binding TripValue}" Header="Trip Value" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -101,9 +160,15 @@
                 </DataGridTextColumn>
 
 
-                <DataGridTextColumn Binding="{Binding Live_value}" Header="Live value" Width="*" Foreground="white">
+                <DataGridTextColumn Binding="{Binding LiveValue}" Header="Live value" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
@@ -113,8 +178,14 @@
 
 
                 <DataGridTextColumn Binding="{Binding Units}" Header="Units" Width="*" Foreground="white">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="#bbbbbb"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="BorderThickness" Value="0" />
                             <Setter Property="Background" Value="#3b3d3c" />
                             <Setter Property="BorderBrush"  Value="#3b3d3c" />
                             <Setter Property="FontSize" Value="15" />
