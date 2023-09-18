@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using table_Misha.Model;
 
 namespace table_Misha
 {
@@ -24,27 +25,11 @@ namespace table_Misha
         public MainWindow()
         {
             InitializeComponent();
-            table.Items.Add(new Data_item() { Date_time = new DateTime(2023, 7, 14,  05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
-            table.Items.Add(new Data_item() { Date_time = new DateTime(2023, 7, 18, 05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
-            table.Items.Add(new Data_item() { Date_time = new DateTime(2024, 7, 18, 05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
-            table.Items.Add(new Data_item() { Date_time = new DateTime(2053, 7, 18, 05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
-            table.Items.Add(new Data_item() { Date_time = new DateTime(2029, 7, 18, 05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
+            table.Items.Add(new DataItem() {ImageSource = "/Data/img/red-question-mark.png", DateAndTime = new DateTime(2023, 7, 14,  05, 23, 14), LocationTag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", TripValue = "NaN", LiveValue = "NAN", Units = "КГ/Ч" });
+            table.Items.Add(new DataItem() {ImageSource = "/Data/img/yellow-question-mark.png", DateAndTime = new DateTime(2023, 7, 18, 05, 23, 14), LocationTag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", TripValue = "NaN", LiveValue = "NAN", Units = "КГ/Ч" });
+            table.Items.Add(new DataItem() {ImageSource = "/Data/img/red-question-mark.png", DateAndTime = new DateTime(2024, 7, 18, 05, 23, 14), LocationTag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", TripValue = "NaN", LiveValue = "NAN", Units = "КГ/Ч" });
+            table.Items.Add(new DataItem() {ImageSource = "/Data/img/yellow-question-mark.png", DateAndTime = new DateTime(2053, 7, 18, 05, 23, 14), LocationTag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", TripValue = "NaN", LiveValue = "NAN", Units = "КГ/Ч" });
+            table.Items.Add(new DataItem() {ImageSource = "/Data/img/red-question-mark.png", DateAndTime = new DateTime(2029, 7, 18, 05, 23, 14), LocationTag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", TripValue = "NaN", LiveValue = "NAN", Units = "КГ/Ч" });
         }
-        /* hi */
-        public class Data_item
-        {
-            public DateTime Date_time { get; set; }
-            public string Location_tag { get; set; }
-            public string Source { get; set; }
-            public string Condition { get; set; }
-            public string Prionity { get; set; }
-            public string Description { get; set; }
-            public string Trip_value { get; set; }
-            public string Live_value { get; set; }
-            public string Units { get; set; }
-        }
-
-        
-
     }
 }
