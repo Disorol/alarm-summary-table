@@ -11,25 +11,119 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <DataGrid Background="#878a87" AutoGenerateColumns="False" x:Name="table">
+        <DataGrid Background="#878a87" AutoGenerateColumns="False" x:Name="table" GridLinesVisibility="None">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Date_time, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="Date and Time" Width="auto" >
+                <DataGridTemplateColumn Header="Image" Width="SizeToCells" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="rqm.png" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTextColumn Binding="{Binding Date_time, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="Date and Time" Width="auto" Foreground="white" >
                     <DataGridTextColumn.CellStyle>
                         <Style TargetType="DataGridCell">
-                            <Setter Property="Background"
-                                    Value="#8d918d" />
+                            <Setter Property="BorderThickness" Value="1" />
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
                         </Style>
                     </DataGridTextColumn.CellStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Location_tag}" Header="Location tag" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Source}" Header="Source" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Condition}" Header="Condition" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding Prionity}" Header="Prionity" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding Descriprion}" Header="Descriprion" Width="auto"/>
-                <DataGridTextColumn Binding="{Binding Trip_value}" Header="Trip Value" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Live_value}" Header="Live Value" Width="*"/>
-                <DataGridTextColumn Binding="{Binding Units}" Header="Units" Width="auto" />
+
+
+
+                <DataGridTextColumn Binding="{Binding Location_tag}" Header="Location tag" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding Source}" Header="Source" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Binding="{Binding Condition}" Header="Condition" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+
+
+                <DataGridTextColumn Binding="{Binding Prionity}" Header="Prionity" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+
+
+                <DataGridTextColumn Binding="{Binding Description}" Header="Description" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Binding="{Binding Trip_value}" Header="Trip Value" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Binding="{Binding Live_value}" Header="Live value" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+
+
+                <DataGridTextColumn Binding="{Binding Units}" Header="Units" Width="*" Foreground="white">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="{x:Type DataGridCell}">
+                            <Setter Property="Background" Value="#3b3d3c" />
+                            <Setter Property="BorderBrush"  Value="#3b3d3c" />
+                            <Setter Property="FontSize" Value="15" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
             </DataGrid.Columns>
+            
+            
         </DataGrid>
     </Grid>
 </Window>
