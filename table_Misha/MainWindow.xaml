@@ -1,0 +1,35 @@
+﻿<Window x:Class="table_Misha.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:table_Misha"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid Background="#878a87" AutoGenerateColumns="False" x:Name="table">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Date_time, StringFormat=\{0:dd.MM.yy HH:mm:ss\}}" Header="Date and Time" Width="auto" >
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background"
+                                    Value="#8d918d" />
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Location_tag}" Header="Location tag" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Source}" Header="Source" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Condition}" Header="Condition" Width="auto"/>
+                <DataGridTextColumn Binding="{Binding Prionity}" Header="Prionity" Width="auto"/>
+                <DataGridTextColumn Binding="{Binding Descriprion}" Header="Descriprion" Width="auto"/>
+                <DataGridTextColumn Binding="{Binding Trip_value}" Header="Trip Value" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Live_value}" Header="Live Value" Width="*"/>
+                <DataGridTextColumn Binding="{Binding Units}" Header="Units" Width="auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
