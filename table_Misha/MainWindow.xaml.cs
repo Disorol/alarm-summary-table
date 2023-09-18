@@ -27,7 +27,7 @@ namespace table_Misha
             table.Items.Add(new Data_item() { Date_time = new DateTime(2023, 7, 14,  05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
             table.Items.Add(new Data_item() { Date_time = new DateTime(2023, 7, 18, 05, 23, 14), Location_tag = "RIF", Source = "FI1740", Condition = "BAD PV", Prionity = "L 00", Description = "HOT WATER E_1717", Trip_value = "NaN", Live_value = "NAN", Units = "КГ/Ч" });
         }
-
+        /* hi */
         public class Data_item
         {
             public DateTime Date_time { get; set; }
