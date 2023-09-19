@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
         xmlns:local="clr-namespace:table_Misha"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
@@ -13,14 +14,66 @@
         </Grid.RowDefinitions>
         <DataGrid Background="#333333" AutoGenerateColumns="False" x:Name="table" GridLinesVisibility="None" RowHeaderWidth="0">
             <DataGrid.Resources>
+                <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+                    <Setter Property="Width" Value="8"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Cursor" Value="SizeWE"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Thumb}">
+                                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#beb9b4" />
                     <Setter Property="FontFamily" Value="helvetica" />
                     <Setter Property="FontSize" Value="13" />
                     <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                    <Setter Property="BorderThickness" Value="0,0,1,0"></Setter>
+                    <Setter Property="BorderThickness" Value="0,0,1,0" />
                     <Setter Property="BorderBrush" Value="#d4cfc9"/>
                     <Setter Property="Padding" Value="3 0 0 0" />
+                    <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                            <Grid>
+                                <Themes:DataGridHeaderBorder BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsClickable="{TemplateBinding CanUserSort}" IsPressed="{TemplateBinding IsPressed}" IsHovered="{TemplateBinding IsMouseOver}" Padding="{TemplateBinding Padding}" SortDirection="{TemplateBinding SortDirection}" SeparatorBrush="{TemplateBinding SeparatorBrush}" SeparatorVisibility="{TemplateBinding SeparatorVisibility}">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ContentPresenter Grid.Column="0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                        <Path x:Name="SortArrow"
+                                                Grid.Column="1"
+                                                HorizontalAlignment="Right" VerticalAlignment="Center"                                           
+                                                Width="6.5" Height="6" Margin="2,0,5,0"
+                                                Stretch="Fill"  Opacity="1" Fill="#ebe8e6"
+                                                RenderTransformOrigin="0.5,0.4"
+                                                Visibility="Collapsed"
+                                                Data="M0,0 L1,0 0.5,1 z" />
+                                    </Grid>
+                                </Themes:DataGridHeaderBorder>
+                                <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                                <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="SortDirection" Value="Ascending">
+                                    <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                                    <Setter TargetName="SortArrow" Property="RenderTransform">
+                                        <Setter.Value>
+                                            <RotateTransform Angle="180" />
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="SortDirection" Value="Descending">
+                                    <Setter TargetName="SortArrow" Property="Visibility" Value="Visible" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
                 </Style>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="BorderThickness" Value="0" />
@@ -29,7 +82,6 @@
                     <Setter Property="FontFamily" Value="helvetica" />
                     <Setter Property="FontSize" Value="13" />
                     <Setter Property="Foreground" Value="White" />
-                    <Setter Property="VerticalAlignment" Value="Center" />
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
